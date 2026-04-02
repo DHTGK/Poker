@@ -8,6 +8,9 @@ class Card:
     def print(self):
         print(self.suite, self.number)
 
+    def give_number(self):
+        return self.number
+
 class Deck:
     deck = []
     drawn_cards = []
@@ -36,7 +39,7 @@ class Deck:
                 elif x == 3:
                     suite = "Diamond"
 
-                self.deck.append(Card(number, suite))
+                self.deck.append(Card(suite, number))
                 
 
     def draw(self):
@@ -50,7 +53,7 @@ class Deck:
         
         self.drawn_cards.append(card)
 
-        card.print()
+        return card
 
     def check(self):
         for x in range(0, len(self.deck)):
@@ -61,5 +64,3 @@ class Deck:
     def reset(self):
         self.deck = self.deck + self.drawn_cards
         self.drawn_cards.clear()
-
-Poker = Deck()
